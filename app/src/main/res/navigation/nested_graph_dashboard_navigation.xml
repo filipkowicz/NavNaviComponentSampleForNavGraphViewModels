@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nested_graph"
+    app:startDestination="@+id/navigation_dashboard">
+
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.filipkowicz.navcomponentsample.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <argument
+            android:name="dashboard_arg"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_navigation_dashboard_to_navigation_dashboard_details"
+            app:destination="@id/navigation_dashboard_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard_details"
+        android:name="com.filipkowicz.navcomponentsample.ui.dashboard_details.DashboardDetailsFragment"
+        android:label="@string/title_dashboard_details"
+        tools:layout="@layout/fragment_dashboard_details" >
+        <argument
+            android:name="dashboard_arg"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+
+</navigation>

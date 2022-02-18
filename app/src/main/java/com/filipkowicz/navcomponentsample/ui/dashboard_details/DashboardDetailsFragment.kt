@@ -1,4 +1,4 @@
-package com.filipkowicz.navcomponentsample.ui.dashboard
+package com.filipkowicz.navcomponentsample.ui.dashboard_details
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,12 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.filipkowicz.navcomponentsample.databinding.FragmentDashboardBinding
+import com.filipkowicz.navcomponentsample.databinding.FragmentDashboardDetailsBinding
+import com.filipkowicz.navcomponentsample.ui.dashboard.DashboardDetailsViewModel
 
-class DashboardFragment : Fragment() {
+class DashboardDetailsFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentDashboardDetailsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,14 +24,10 @@ class DashboardFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View {
         val dashboardViewModel =
-            ViewModelProvider(this)[DashboardViewModel::class.java]
+            ViewModelProvider(this)[DashboardDetailsViewModel::class.java]
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentDashboardDetailsBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        binding.detailsButton.setOnClickListener {
-            findNavController().navigate(DashboardFragmentDirections.actionNavigationDashboardToNavigationDashboardDetails("dupa"))
-        }
 
         val textView: TextView = binding.textDashboard
         dashboardViewModel.text.observe(viewLifecycleOwner) {
