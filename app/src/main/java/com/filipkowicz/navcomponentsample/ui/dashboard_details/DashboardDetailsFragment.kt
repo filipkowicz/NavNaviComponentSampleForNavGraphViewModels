@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.navGraphViewModels
+import com.filipkowicz.navcomponentsample.R
 import com.filipkowicz.navcomponentsample.databinding.FragmentDashboardDetailsBinding
 import com.filipkowicz.navcomponentsample.ui.dashboard.DashboardDetailsViewModel
+import com.filipkowicz.navcomponentsample.ui.dashboardcommon.DashboardCommonViewModel
 
 class DashboardDetailsFragment : Fragment() {
 
@@ -17,6 +20,8 @@ class DashboardDetailsFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    private val commonViewModel: DashboardCommonViewModel by navGraphViewModels(R.id.nested_graph)
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -33,6 +38,11 @@ class DashboardDetailsFragment : Fragment() {
         dashboardViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
+        commonViewModel.text.observe(viewLifecycleOwner) {
+            binding.textCommonDashboard.text = it
+        }
+
         return root
     }
 
