@@ -9,12 +9,24 @@
         android:id="@+id/navigation_home"
         android:name="com.filipkowicz.navcomponentsample.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_nested_graph"
+            app:destination="@id/nested_graph" >
+       </action>
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.filipkowicz.navcomponentsample.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
-    <include app:graph="@navigation/nested_graph_dashboard_navigation" />
+    <include app:graph="@navigation/nested_graph_dashboard_navigation"
+        >
+        <argument
+            android:name="dashboard_arg"
+            app:argType="string"
+            app:nullable="true" />
+    </include>
 </navigation>

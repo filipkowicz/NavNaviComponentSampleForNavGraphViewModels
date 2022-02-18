@@ -10,7 +10,7 @@ class DashboardCommonViewModel(
 ) : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "Common data" + savedStateHandle.get(ARG)
+        value = "Common data: " + savedStateHandle.get(ARG)
     }
     val text: LiveData<String> = _text
 

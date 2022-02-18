@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.filipkowicz.navcomponentsample.R
 import com.filipkowicz.navcomponentsample.databinding.FragmentDashboardDetailsBinding
-import com.filipkowicz.navcomponentsample.ui.dashboard.DashboardDetailsViewModel
 import com.filipkowicz.navcomponentsample.ui.dashboardcommon.DashboardCommonViewModel
 
 class DashboardDetailsFragment : Fragment() {
@@ -42,6 +42,8 @@ class DashboardDetailsFragment : Fragment() {
         commonViewModel.text.observe(viewLifecycleOwner) {
             binding.textCommonDashboard.text = it
         }
+
+        binding.textDeeplink.text = "ss" + findNavController().currentDestination?.buildDeepLinkIds()
 
         return root
     }

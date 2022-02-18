@@ -10,7 +10,7 @@ class DashboardViewModel(
 ) : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is dashboard Fragment" + savedStateHandle.get(ARG)
+        value = "This is dashboard: " + savedStateHandle.get(ARG)
     }
     val text: LiveData<String> = _text
 
