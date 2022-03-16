@@ -36,14 +36,14 @@ class DashboardDetailsFragment : Fragment() {
 
         val textView: TextView = binding.textDashboard
         dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+            textView.text = it + dashboardViewModel + this.toString()
         }
 
         commonViewModel.text.observe(viewLifecycleOwner) {
-            binding.textCommonDashboard.text = it
+            binding.textCommonDashboard.text = it + commonViewModel
         }
 
-        binding.textDeeplink.text = "ss" + findNavController().currentDestination?.buildDeepLinkIds()
+        binding.textDeeplink.text = "ss" + findNavController().currentDestination?.buildDeepLinkIds() + this
 
         return root
     }
