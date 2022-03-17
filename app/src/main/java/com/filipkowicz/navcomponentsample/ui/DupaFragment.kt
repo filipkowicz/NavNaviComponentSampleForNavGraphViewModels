@@ -41,7 +41,10 @@ class DupaFragment : Fragment() {
             findNavController().navigate(
                 R.id.navigation_home,
                 null,
-                NavOptions.Builder().setPopUpTo(R.id.mobile_navigation, false).build()
+                NavOptions
+                    .Builder()
+                    .setPopUpTo(R.id.mobile_navigation, false)
+                    .build()
             )
         }
 
